@@ -1,0 +1,3 @@
+[is-dark="true"] a, [is-dark="true"] p, [is-dark="true"] span {
+	color: rgba(244, 247, 239, 0.96) !important;
+}
