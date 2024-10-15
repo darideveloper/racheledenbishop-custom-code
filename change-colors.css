@@ -1,3 +1,7 @@
 [is-dark="true"] a, [is-dark="true"] p, [is-dark="true"] span {
-	color: rgba(244, 247, 239, 0.96) !important;
+	color: #e5fce1 !important;
+}
+
+a, p, span {
+	transition: color 1s !important
 }

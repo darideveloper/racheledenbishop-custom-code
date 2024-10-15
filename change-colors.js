@@ -1,41 +1,59 @@
-const pageSections = document.querySelectorAll('[page-url]')
+// Detect when page loads
+window.onload = () => {
+  console.log('Page loaded')
 
-// Add transition duration 1s to all sections
-pageSections.forEach(pageSection => {
-  pageSection.style.transition = 'all 1s'
-})
+  const pageSections = document.querySelectorAll('[page-url]')
+  console.log({ pageSections })
 
-function changePageColor(color, isDark = false) {
+  // Add transition duration 1s to all sections
   pageSections.forEach(pageSection => {
-    // update bg color
-    pageSection.style.backgroundColor = color
-    pageSection.setAttribute('is-dark', isDark)
+    pageSection.style.transition = 'all 1s'
   })
-}
 
-function changeColorScroll(selector, newColor, isDark = false) {
-
-  const elem = document.querySelector(selector)
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        console.log(`Element ${selector} is visible`)
-        changePageColor(newColor, isDark)
-      } 
+  function changePageColor(color, isDark = false) {
+    console.log(`Changing color to ${color}`)
+    pageSections.forEach(pageSection => {
+      // update bg color
+      pageSection.style.backgroundColor = color
+      pageSection.setAttribute('is-dark', isDark)
     })
-  }, {
-    threshold: 0.5  // Trigger when half of the element is visible
-  })
+  }
 
-  observer.observe(elem)
+  function changeColorScroll(selector, newColorVisible, newColorNoVisible = "", isDark = false) {
+
+    const elem = document.querySelector(selector)
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log(`Element ${selector} is visible`)
+          changePageColor(newColorVisible, isDark)
+        } else if (newColorNoVisible != "") {
+          changePageColor(newColorNoVisible, !isDark)
+        }
+      })
+    }, {
+      threshold: 0.5  // Trigger when half of the element is visible
+    })
+
+    observer.observe(elem)
+  }
+
+  
+  // Change color when match main section
+  changeColorScroll('#main-page-middle + .page-layout', 'white')
+
+  // Set initial bg color
+  changePageColor('#271010', true)
+
+  // Change color when match header
+  window.onscroll = () => {
+    if (window.scrollY <= 100) {
+      changePageColor('#271010', true)
+    } else {
+      // Add event listener to change color when match footer
+      changeColorScroll('#main-page-bottom-1 + .page-layout', '#271010', 'white', true)
+    }
+  }
 }
 
-// Set initial bg color
-changePageColor('#271010', true)
-
-// Change color when scrolling
-changeColorScroll('#main-page-middle + .page-layout', 'white')
-changeColorScroll('#main-page- + .page-layout', 'white')
-changeColorScroll('#pre-footer', 'white')
-changeColorScroll('#main-page-bottom-1 + .page-layout', '#271010', true)
