@@ -17,5 +17,5 @@ setTimeout(() => {
       footerScroll.classList.remove('show');
     }
   });
-}, 1000); // Delay to ensure the footer is loaded
+}, 2000); // Delay to ensure the footer is loaded
 // ------ END DISCOVER FOOTER SCROLL ------
