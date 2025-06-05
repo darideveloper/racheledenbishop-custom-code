@@ -1,0 +1,35 @@
+/* ------ DISCOVER FOOTER SCROLL ------ */
+
+/* Space to render footer */
+[page-url="main-page-"] {
+    margin-bottom: 520px;
+}
+
+/* Relave main container to show screll effects */
+#main-page- + .page-layout {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+/* Sections / main content bg color */
+#main-page- + .page-layout .page-content {
+    background-color: #fafafa;
+}
+
+
+/* Footer styles */
+#main-page-bottom-1 + .page-layout {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  visibility: visible;
+  display: none;
+}
+
+#main-page-bottom-1 + .page-layout.show {
+    display: block;
+}
+
+/* ------ END DISCOVER FOOTER SCROLL ------ */
