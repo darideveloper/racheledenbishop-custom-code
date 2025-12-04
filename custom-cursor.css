@@ -1,0 +1,20 @@
+/* ------ CUSTOM CURSOR ------ */
+
+body.hide-cursor {
+  cursor: none;
+}
+
+.custom-cursor {
+  position: fixed;
+  width: 30px; /* Adjust size as needed */
+  height: 30px;
+  border-radius: 50%;
+  background-color: white; /* Or any desired color */
+  pointer-events: none; /* Important for click-through */
+  z-index: 9999; /* Ensure it's on top */
+  /* Center the cursor on the mouse position */
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference; /* Or another blend mode */
+}
+
+/* ------ END CUSTOM CURSOR ------ */
