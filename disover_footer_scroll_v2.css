@@ -10,6 +10,7 @@ a#main-page-bottom-1 + div {
 }
 
 /* Fixed footer section */
+
 [page-url='main-page-bottom-1'] {
   position: fixed;
   bottom: 0;
@@ -22,6 +23,16 @@ a#main-page-bottom-1 + div {
   z-index: -20 !important;
 }
 
+/* Footer opacity: show when scroll down */
+:root {
+  --footer-opacity: 0; /* default */
+}
+
+[page-url='main-page-bottom-1'] .page-layout,
+[page-url='footer'] .page-layout {
+  opacity: var(--footer-opacity, 0);
+}
+
 /* add white bg to other sections */
 [page-url='main-page-1'] .page-content,
 [page-url='top'] .backdrop.clip {
@@ -32,24 +43,6 @@ a#main-page-bottom-1 + div {
   [page-url='main-page-2'] {
     margin-bottom: 2000px;
   }
-}
-
-/* Add overlays to footer, to change opacity from js */
-
-:root {
-  --overlay-opacity: 1; /* default */
-}
-
-[page-url='main-page-bottom-1']::before,
-[page-url='footer']::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: black;
-  z-index: 10;
-  border-radius: inherit;
-  opacity: var(--overlay-opacity, 0);
-  transition: opacity 0.3s ease;
 }
 
 /* ------ END DISCOVER FOOTER SCROLL V2 ------ */

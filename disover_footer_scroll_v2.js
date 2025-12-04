@@ -10,16 +10,15 @@ window.addEventListener("scroll", () => {
   const scrollPercent = (scrollTop / docHeight) * 100
 
   // Calculate opacity based on scroll percentage
-  let opacity = 1 - ((scrollPercent - 90) / 10)
+  let opacity = (scrollPercent - 90) / 10
   opacity = Math.max(0, Math.min(1, opacity))
 
   // Update global CSS variable
-  document.documentElement.style.setProperty("--overlay-opacity", opacity)
+  document.documentElement.style.setProperty("--footer-opacity", opacity)
 
+  // --- Above section height ---
+  const aboveSection = document.querySelector('[page-url="main-page-2"]')
+  const footerSection = document.querySelector('[page-url="main-page-bottom-1"]')
+  const footerHeight = footerSection.offsetHeight
+  aboveSection.style.marginBottom = `${footerHeight}px`
 })
-
-// --- Above section height ---
-const aboveSection = document.querySelector('[page-url="main-page-2"]')
-const footerSection = document.querySelector('[page-url="main-page-bottom-1"]')
-const footerHeight = footerSection.offsetHeight
-aboveSection.style.marginBottom = `${footerHeight}px`
