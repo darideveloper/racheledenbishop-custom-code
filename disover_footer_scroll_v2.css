@@ -1,0 +1,55 @@
+/* ------ DISCOVER FOOTER SCROLL V2 ------ */
+
+/* same bg color in all sections */
+a#main-page-bottom-1 + div {
+  background-color: #050505;
+}
+
+[id='S2083015778'].page {
+  background-color: #050505 !important;
+}
+
+/* Fixed footer section */
+[page-url='main-page-bottom-1'] {
+  position: fixed;
+  bottom: 0;
+  z-index: -20;
+}
+
+[page-url='footer'] {
+  position: fixed !important;
+  bottom: 0 !important;
+  z-index: -20 !important;
+}
+
+/* add white bg to other sections */
+[page-url='main-page-1'] .page-content,
+[page-url='top'] .backdrop.clip {
+  background-color: white;
+}
+
+@media (min-width: 1219px) {
+  [page-url='main-page-2'] {
+    margin-bottom: 2000px;
+  }
+}
+
+/* Add overlays to footer, to change opacity from js */
+
+:root {
+  --overlay-opacity: 1; /* default */
+}
+
+[page-url='main-page-bottom-1']::before,
+[page-url='footer']::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: black;
+  z-index: 10;
+  border-radius: inherit;
+  opacity: var(--overlay-opacity, 0);
+  transition: opacity 0.3s ease;
+}
+
+/* ------ END DISCOVER FOOTER SCROLL V2 ------ */
