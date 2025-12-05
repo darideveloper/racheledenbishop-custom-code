@@ -1,0 +1,32 @@
+/* ------ FOOTER ARROW ------ */
+
+#arrow-wrapper {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#arrow {
+  display: inline-grid;
+  margin-left: 10px;
+  border-radius: 100%;
+  border: 1px solid white;
+  fill: white;
+  width: 40px;
+  height: 40px;
+  padding: 6px;
+  overflow: hidden;
+}
+
+#arrow svg {
+  margin-left: 8%;
+  scale: 1.2;
+  transition: all 0.3s ease;
+}
+
+/* Hover wrapper → animate arrow */
+#arrow-wrapper:hover #arrow svg {
+  margin-left: -52%;
+}
+
+/* ------ END FOOTER ARROW ------ */
