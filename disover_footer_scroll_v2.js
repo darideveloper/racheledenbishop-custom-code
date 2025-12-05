@@ -26,6 +26,6 @@ window.addEventListener("scroll", () => {
   document.documentElement.style.setProperty("--footer-opacity", opacity)
 
   // --- Above section height ---
-  const footerHeight = footerSection.offsetHeight
+  const footerHeight = footerSection.offsetHeight - 10
   aboveSection.style.marginBottom = `${footerHeight}px`
 })
