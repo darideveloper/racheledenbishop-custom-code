@@ -1,11 +1,9 @@
 /* ------ DISCOVER FOOTER SCROLL V2 ------ */
 
 /* same bg color in all sections */
-a#main-page-bottom-1 + div {
-  background-color: #050505;
-}
-
-[id='S2083015778'].page {
+[id='S2083015778'].page,
+a#main-page-bottom-1 + div,
+[id='Q3072688951'].page {
   background-color: #050505 !important;
 }
 
@@ -39,10 +37,8 @@ a#main-page-bottom-1 + div {
   background-color: white;
 }
 
-@media (min-width: 1219px) {
-  [page-url='main-page-2'] {
-    margin-bottom: 2000px;
-  }
+[page-url='main-page-2'] {
+  pointer-events: none !important;
 }
 
 /* ------ END DISCOVER FOOTER SCROLL V2 ------ */

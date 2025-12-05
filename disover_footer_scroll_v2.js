@@ -2,6 +2,15 @@
 
 window.addEventListener("scroll", () => {
 
+  // --- Above section height ---
+  const aboveSection = document.querySelector('[page-url="main-page-2"]')
+  const footerSection = document.querySelector('[page-url="main-page-bottom-1"]')
+
+  // Don't do anything if any elements are not present
+  if (!aboveSection || !footerSection) {
+    return
+  }
+
   // --- Overlays ---
 
   // Get scroll percentage
@@ -17,8 +26,6 @@ window.addEventListener("scroll", () => {
   document.documentElement.style.setProperty("--footer-opacity", opacity)
 
   // --- Above section height ---
-  const aboveSection = document.querySelector('[page-url="main-page-2"]')
-  const footerSection = document.querySelector('[page-url="main-page-bottom-1"]')
   const footerHeight = footerSection.offsetHeight
   aboveSection.style.marginBottom = `${footerHeight}px`
 })
